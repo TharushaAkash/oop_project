@@ -1,6 +1,6 @@
 package com.project.controllers;
 
-import com.example.tourismapp.utils.FileHandler;
+import com.project.utils.FileHandler;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
@@ -23,10 +23,11 @@ public class AuthServlet extends HttpServlet {
                 session.setAttribute("email", email);
                 session.setAttribute("role", role);
 
+
                 if (role.equals("admin")) {
-                    response.sendRedirect("add-package.jsp");
+                    response.sendRedirect("add-package.jsp"); //Change to admin-dashboard
                 } else {
-                    response.sendRedirect("user-dashboard.jsp");
+                    response.sendRedirect("user-dashboard");
                 }
                 return;
             }

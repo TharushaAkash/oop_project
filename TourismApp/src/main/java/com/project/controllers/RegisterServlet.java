@@ -1,6 +1,6 @@
 package com.project.controllers;
 
-import com.example.tourismapp.utils.FileHandler;
+import com.project.utils.FileHandler;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
