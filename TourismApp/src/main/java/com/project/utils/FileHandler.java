@@ -1,4 +1,4 @@
-package com.example.tourismapp.utils;
+package com.project.utils;
 
 import java.io.*;
 
