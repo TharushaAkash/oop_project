@@ -1,6 +1,7 @@
 package com.project.controllers.packageadmin;
 
-import com.example.tourismapp.utils.FileHandler;
+import com.project.model.TourismPackage;
+import com.project.utils.FileHandler;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
@@ -14,7 +15,11 @@ public class AddPackageServlet extends HttpServlet {
         String description = request.getParameter("description");
         String price = request.getParameter("price");
 
-        String record = id + "," + name + "," + description + "," + price + "\n";
+
+        //Create Package Object
+        TourismPackage pkg = new TourismPackage(id, name, description, price);
+
+        String record = pkg.getId() + "," + pkg.getName() + "," + pkg.getDescription() + "," + pkg.getPrice() + "\n";
         String path = "package.txt";
         //Remove this ---- getServletContext().getRealPath("/") +
 
