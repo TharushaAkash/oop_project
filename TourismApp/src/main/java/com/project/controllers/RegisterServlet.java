@@ -16,8 +16,23 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String role = request.getParameter("role");
 
-        String record = email + "," + password + "\n";
+
         String file = role.equals("admin") ? ADMINS_FILE : USERS_FILE;
+
+        // Check if email already exists in users.txt (only for users, not admins)
+        if (!role.equals("admin")) {
+            for (String line : FileHandler.readFromFile(USERS_FILE)) {
+                if (line.startsWith(email + ",")) {
+                    response.sendRedirect("register.jsp?error=Email already exists");
+                    return;
+                }
+            }
+        }
+
+
+        String record = email + "," + password + "\n";
+        //String file = role.equals("admin") ? ADMINS_FILE : USERS_FILE;
+
 
         FileHandler.writeToFile(file, true, record);
         response.sendRedirect("login.jsp");
