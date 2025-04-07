@@ -18,7 +18,7 @@
         <label>Register As</label>
         <select name="role">
             <option value="user">User</option>
-            <option value="admin">Admin</option>
+            <!--<option value="admin">Admin</option> -->
         </select>
 
         <input type="submit" value="Register">
