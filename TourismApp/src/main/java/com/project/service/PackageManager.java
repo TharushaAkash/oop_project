@@ -25,7 +25,12 @@ public class PackageManager {
             String description = fields[2];
             String price = fields[3];
 
-            TourismPackage pkg = new TourismPackage(packageId, name, description, price);
+
+            String imageFileName = fields.length >= 5 ? fields[4] : "default.jpg"; // fallback if missing
+            TourismPackage pkg = new TourismPackage(packageId, name, description, price, imageFileName);
+
+
+            //TourismPackage pkg = new TourismPackage(packageId, name, description, price);
 
             packages.add(pkg);
         }
@@ -43,8 +48,8 @@ public class PackageManager {
         return null;
     }
 
-    public static void addPackage(String id, String name, String description, String price) {
-        TourismPackage pkg = new TourismPackage(id, name, description, price);
+    public static void addPackage(String id, String name, String description, String price, String imageFileName) {
+        TourismPackage pkg = new TourismPackage(id, name, description, price, imageFileName);
         packages.add(pkg);
         FileHandler.writeToFile(fileName, true, pkg.toString());
     }
