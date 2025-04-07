@@ -14,20 +14,20 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String role = request.getParameter("role");
+        //String role = request.getParameter("role");
 
-
-        String file = role.equals("admin") ? ADMINS_FILE : USERS_FILE;
+        //String file = role.equals("admin") ? ADMINS_FILE : USERS_FILE;
+        String file = USERS_FILE;
 
         // Check if email already exists in users.txt (only for users, not admins)
-        if (!role.equals("admin")) {
+        //if (!role.equals("admin")) {
             for (String line : FileHandler.readFromFile(USERS_FILE)) {
                 if (line.startsWith(email + ",")) {
                     response.sendRedirect("register.jsp?error=Email already exists");
                     return;
                 }
             }
-        }
+
 
 
         String record = email + "," + password + "\n";
