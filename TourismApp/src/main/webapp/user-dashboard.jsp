@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.project.model.TourismPackage" %>
 <%@ page import="java.util.ArrayList" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>User Dashboard</title>
@@ -29,7 +30,10 @@
             ArrayList<TourismPackage> packages = (ArrayList<TourismPackage>) request.getAttribute("packages");
             if (packages != null && !packages.isEmpty()) {
                 for (TourismPackage pkg : packages) {
-                    String imageName = pkg.getName().toLowerCase().replaceAll(" ", "-") + ".jpg";
+                    String imageName = pkg.getImageFileName();
+                    if (imageName == null || imageName.trim().isEmpty()) {
+                        imageName = "default.jpg"; // Fallback image
+                    }
         %>
         <div class="card" data-name="<%= pkg.getName().toLowerCase() %>" data-description="<%= pkg.getDescription().toLowerCase() %>">
             <div class="card-image" style="background-image: url('images/<%= imageName %>');"></div>
@@ -38,7 +42,7 @@
                 <p><%= pkg.getDescription() %></p>
                 <div class="price-section">
                     <span>Price</span>
-                    <span class="price">$<%= pkg.getPrice() %></span>
+                    <span class="price">LKR<%= pkg.getPrice() %></span>
                 </div>
             </div>
         </div>

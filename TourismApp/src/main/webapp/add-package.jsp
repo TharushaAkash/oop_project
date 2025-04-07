@@ -16,7 +16,8 @@
 
     <h2>Add New Tourism Package</h2>
 
-    <form action="add-package" method="POST" class="form-box">
+    <!-- Important: Use enctype="multipart/form-data" -->
+    <form action="add-package" method="POST" class="form-box" enctype="multipart/form-data">
         <label for="id">Package ID:</label>
         <input type="text" name="id" id="id" required>
 
@@ -28,6 +29,9 @@
 
         <label for="price">Price:</label>
         <input type="number" name="price" id="price" step="0.01" required>
+
+        <label for="imageFileName">Image:</label>
+        <input type="file" name="image" accept="image/*" required>
 
         <input type="submit" value="Add Package" class="submit-btn">
     </form>
