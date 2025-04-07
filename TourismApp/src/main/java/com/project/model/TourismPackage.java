@@ -5,12 +5,15 @@ public class TourismPackage {
     private String name;
     private String description;
     private String price;
+    private String imageFileName;
 
-    public TourismPackage(String id, String name, String description, String price) {
+
+    public TourismPackage(String id, String name, String description, String price, String imagefileName) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.imageFileName = imagefileName;
     }
 
     public String getId(){
@@ -42,13 +45,23 @@ public class TourismPackage {
     }
 
 
+    public String getImageFileName(){
+        return imageFileName;
+    }
+    public void setImageFileName(String imageFileName){
+        this.imageFileName = imageFileName;
+    }
+
+
     public void displayDetails(){
         System.out.println("ID: " + this.id);
     }
 
+
+
     @Override
     public String toString() {
-        return id + "," + name + "," + description + "," + price + "\n";
+        return id + "," + name + "," + description + "," + price + "," + imageFileName + "\n";
     }
 
 }
