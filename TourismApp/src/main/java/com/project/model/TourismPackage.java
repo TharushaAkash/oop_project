@@ -6,14 +6,16 @@ public class TourismPackage {
     private String description;
     private String price;
     private String imageFileName;
+    private int durationDays;
 
 
-    public TourismPackage(String id, String name, String description, String price, String imagefileName) {
+    public TourismPackage(String id, String name, String description, String price, String imagefileName, int durationDays) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.imageFileName = imagefileName;
+        this.durationDays = durationDays;
     }
 
     public String getId(){
@@ -51,6 +53,12 @@ public class TourismPackage {
     public void setImageFileName(String imageFileName){
         this.imageFileName = imageFileName;
     }
+    public int getDurationDays(){
+        return durationDays;
+    }
+    public void setDurationDays(int durationDays){
+        this.durationDays = durationDays;
+    }
 
 
     public void displayDetails(){
@@ -61,7 +69,7 @@ public class TourismPackage {
 
     @Override
     public String toString() {
-        return id + "," + name + "," + description + "," + price + "," + imageFileName + "\n";
+        return id + "," + name + "," + description + "," + price + "," + imageFileName + "," + durationDays + "\n";
     }
 
 }
