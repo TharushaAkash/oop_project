@@ -24,10 +24,11 @@ public class PackageManager {
             String name = fields[1];
             String description = fields[2];
             String price = fields[3];
+            int durationDays = Integer.parseInt(fields[5]);
 
 
-            String imageFileName = fields.length >= 5 ? fields[4] : "default.jpg"; // fallback if missing
-            TourismPackage pkg = new TourismPackage(packageId, name, description, price, imageFileName);
+            String imageFileName = fields.length >= 6 ? fields[4] : "default.jpg"; // fallback if missing
+            TourismPackage pkg = new TourismPackage(packageId, name, description, price, imageFileName, durationDays);
 
 
             //TourismPackage pkg = new TourismPackage(packageId, name, description, price);
@@ -41,15 +42,15 @@ public class PackageManager {
 
     public static TourismPackage findPackage(String id) {
         for (TourismPackage pkg : packages) {
-            if (pkg.getId() == id) {
+            if (pkg.getId().equals(id)) {
                 return pkg;
             }
         }
         return null;
     }
 
-    public static void addPackage(String id, String name, String description, String price, String imageFileName) {
-        TourismPackage pkg = new TourismPackage(id, name, description, price, imageFileName);
+    public static void addPackage(String id, String name, String description, String price, String imageFileName, int durationDays) {
+        TourismPackage pkg = new TourismPackage(id, name, description, price, imageFileName, durationDays);
         packages.add(pkg);
         FileHandler.writeToFile(fileName, true, pkg.toString());
     }
@@ -59,12 +60,14 @@ public class PackageManager {
         savePackagesToFile();
     }
 
-    public static void updatePackage(String id, String name, String description, String price) {
+    public static void updatePackage(String id, String name, String description, String price, String imageFileName, int durationDays) {
         TourismPackage pkg = findPackage(id);
         if (pkg != null) {
             pkg.setName(name);
             pkg.setDescription(description);
             pkg.setPrice(price);
+            pkg.setImageFileName(imageFileName);
+            pkg.setDurationDays(durationDays);
         }
         savePackagesToFile();
     }
