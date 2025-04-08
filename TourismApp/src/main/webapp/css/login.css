@@ -58,7 +58,10 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: transparent;
+    border: 2px solid #218838;
+    color: #218838; /* needs to stay here because of the color property of a tag */
+    text-decoration: none;
 }
 
 a {
@@ -80,4 +83,21 @@ a:hover {
 .register-btn:hover {
     background-color: #218838; /* Darker blue on hover */
 }
+
+
+.error-box {
+    background: rgba(255, 0, 0, 0.1);
+    color: #b30000;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 12px 20px;
+    margin: 20px auto;
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
 

@@ -1,0 +1,37 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #fceabb, #f8b500);
+    margin: 0;
+    padding: 20px;
+}
+
+.details-container{
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.package-img{
+    height: 300px;
+}
+
+.name{
+    font-family: "Unispace";
+}
+
+input[type="submit"]{
+    background-color: #28a745;;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover{
+    background-color: transparent;
+    border: 2px solid #28a745;
+    color: #28a745;
+    text-decoration: none;
+}
