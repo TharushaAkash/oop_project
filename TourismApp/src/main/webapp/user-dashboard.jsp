@@ -35,17 +35,22 @@
                         imageName = "default.jpg"; // Fallback image
                     }
         %>
+        <a href="view-package.jsp?id=<%= pkg.getId() %>" style="text-decoration: none; color: inherit;">
         <div class="card" data-name="<%= pkg.getName().toLowerCase() %>" data-description="<%= pkg.getDescription().toLowerCase() %>">
             <div class="card-image" style="background-image: url('images/<%= imageName %>');"></div>
             <div class="card-content">
                 <h3><%= pkg.getName() %></h3>
                 <p><%= pkg.getDescription() %></p>
                 <div class="price-section">
+                    <span class="duration">Duration <%= pkg.getDurationDays() %> Days</span>
+                    <br>
                     <span>Price</span>
                     <span class="price">LKR<%= pkg.getPrice() %></span>
+
                 </div>
             </div>
         </div>
+        </a>
         <%
             }
         } else {

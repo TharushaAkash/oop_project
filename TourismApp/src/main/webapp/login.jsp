@@ -27,6 +27,18 @@
     <form action="register.jsp" method="get" class="register-form">
         <input type="submit" value="Register" class="register-btn">
     </form>
+
+    <% String error = request.getParameter("error"); %>
+    <% if (error != null) { %>
+    <div class="error-box">
+        <%= error %>
+    </div>
+    <% } %>
+
+
+
+
+
 </div>
 </body>
 </html>

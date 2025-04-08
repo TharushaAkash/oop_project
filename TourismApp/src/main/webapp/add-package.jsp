@@ -30,6 +30,9 @@
         <label for="price">Price:</label>
         <input type="number" name="price" id="price" step="0.01" required>
 
+        <label for="durationDays">Duration:</label>
+        <input type="number" name="durationDays" id="durationDays" >
+
         <label for="imageFileName">Image:</label>
         <input type="file" name="image" accept="image/*" required>
 
