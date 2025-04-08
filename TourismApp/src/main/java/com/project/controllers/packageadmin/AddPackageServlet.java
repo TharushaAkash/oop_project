@@ -22,6 +22,7 @@ public class AddPackageServlet extends HttpServlet {
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String price = request.getParameter("price");
+        int durationDays = Integer.parseInt(request.getParameter("durationDays"));
 
         // Handle image upload
         Part filePart = request.getPart("image");
@@ -35,10 +36,10 @@ public class AddPackageServlet extends HttpServlet {
         filePart.write(filePath);  // save uploaded image
 
         // Create Package Object
-        TourismPackage pkg = new TourismPackage(id, name, description, price, fileName);
+        TourismPackage pkg = new TourismPackage(id, name, description, price, fileName, durationDays);
 
         // Save to package.txt (include image filename)
-        String record = pkg.getId() + "," + pkg.getName() + "," + pkg.getDescription() + "," + pkg.getPrice() + "," + pkg.getImageFileName() + "\n";
+        String record = pkg.getId() + "," + pkg.getName() + "," + pkg.getDescription() + "," + pkg.getPrice() + "," + pkg.getImageFileName() + "," + pkg.getDurationDays() + "\n";
         String path = "package.txt";
 
         if (FileHandler.writeToFile(path, true, record)) {
