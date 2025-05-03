@@ -2,6 +2,8 @@ package com.project.controllers.packageadmin;
 
 import com.project.model.TourismPackage;
 import com.project.utils.FileHandler;
+import com.project.bst.PackageTree;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -38,16 +40,21 @@ public class AddPackageServlet extends HttpServlet {
         // Create Package Object
         TourismPackage pkg = new TourismPackage(id, name, description, price, fileName, durationDays);
 
-        // Save to package.txt (include image filename)
-        String record = pkg.getId() + "," + pkg.getName() + "," + pkg.getDescription() + "," + pkg.getPrice() + "," + pkg.getImageFileName() + "," + pkg.getDurationDays() + "\n";
-        String path = "package.txt";
-
-        if (FileHandler.writeToFile(path, true, record)) {
-            response.sendRedirect("add-package.jsp");
-        } else {
-            response.getWriter().println("Error saving package.");
+        // Add package to BST stored in servlet context
+        PackageTree packageTree = (PackageTree) getServletContext().getAttribute("packageTree");
+        if (packageTree == null) {
+            packageTree = new PackageTree();
         }
+
+        packageTree.insert(pkg);
+        getServletContext().setAttribute("packageTree", packageTree);
+
+        // Also write to packages.txt file for backup/persistence
+        String record = pkg.toString(); // already formatted with \n
+        String textFilePath = "package.txt";
+        FileHandler.writeToFile(textFilePath, true, record);
+
+        // Redirect after adding
+        response.sendRedirect("admin-dashboard");
     }
-
-
 }

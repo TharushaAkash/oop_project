@@ -31,7 +31,7 @@ public class AuthServlet extends HttpServlet {
 
 
                 if (role.equals("admin")) {
-                    response.sendRedirect("add-package.jsp"); //Change to admin-dashboard
+                    response.sendRedirect("admin-dashboard"); //Change to admin-dashboard
                 } else {
                     response.sendRedirect("user-dashboard");
                 }
