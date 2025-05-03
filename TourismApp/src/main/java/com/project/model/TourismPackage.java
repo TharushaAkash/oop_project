@@ -62,7 +62,12 @@ public class TourismPackage {
 
 
     public void displayDetails(){
-        System.out.println("ID: " + this.id);
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Description: " + description);
+        System.out.println("Price: " + price);
+        System.out.println("ImageFileName: " + imageFileName);
+        System.out.println("Duration: " + durationDays);
     }
 
 
