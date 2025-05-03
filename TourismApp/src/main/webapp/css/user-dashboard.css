@@ -21,9 +21,10 @@ body {
 
 .logout-btn {
     padding: 8px 16px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
+    background-color: transparent;
+    border-color: red;
+    color: red;
+    //border: none;
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
@@ -31,8 +32,12 @@ body {
 }
 
 .logout-btn:hover {
-    background-color: #c82333;
+    background-color: red;
+    color: white;
+    text-decoration: none;
 }
+
+
 
 .search-bar {
     display: flex;
