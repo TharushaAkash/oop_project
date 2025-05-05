@@ -33,6 +33,8 @@
         <th>Description</th>
         <th>Duration</th>
         <th>Price</th>
+        <th>Accommodation Type</th>
+        <th>Discount</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -63,8 +65,10 @@
         <td><%= pkg.getDescription() %></td>
         <td><%= pkg.getDurationDays() %> Days</td>
         <td>LKR <%= pkg.getPrice() %></td>
+        <td><%= pkg.getAccommodationType() %></td>
+        <td><%= pkg.getDiscount() %> %</td>
         <td>
-            <a href="edit-package.jsp?id=<%= pkg.getId() %>" class="action-btn edit-btn">Edit</a>
+            <a href="edit-package?id=<%= pkg.getId() %>" class="action-btn edit-btn">Edit</a>
             <a href="delete-package?id=<%= pkg.getId() %>" class="action-btn delete-btn" onclick="return confirm('Are you sure you want to delete this package?');">Delete</a>
             <a href="adminViewPackage.jsp?id=<%= pkg.getId() %>" class="action-btn view-btn">View</a>
         </td>

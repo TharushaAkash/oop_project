@@ -61,6 +61,26 @@ input[type="number"] {
     font-size: 14px;
 }
 
+input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+}
+
+
+
+
 .submit-btn {
     padding: 12px;
     background-color: #28a745;

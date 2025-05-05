@@ -20,8 +20,10 @@
   <img src="images/<%= pkg.getImageFileName() %>" alt="<%= pkg.getName() %>" class="package-img" />
   <div class="name"><h1><%= pkg.getName() %></h1></div>
   <p><strong>Description:</strong> <%= pkg.getDescription() %></p>
-  <p><strong>Price:</strong> $<%= pkg.getPrice() %></p>
+  <p><strong>Price:</strong> LKR <%= pkg.getPrice() %></p>
   <p><strong>Duration:</strong> <%= pkg.getDurationDays() %> Days</p>
+  <p><strong>Accommodation Type:</strong> $<%= pkg.getAccommodationType()%></p>
+  <p><strong>Discount:</strong> <%= pkg.getDiscount()%> %</p>
 
   <form method="post" action="payment.jsp">
   <input type="submit" value="Book Now" class="bookButton">

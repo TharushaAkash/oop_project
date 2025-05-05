@@ -5,40 +5,40 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-<div class="form-container">
-    <h1>Login</h1>
-    <form action="login" method="post">
-        <label>Email:</label>
-        <input type="email" name="email" required>
+<div class="left-side">
+    <!-- Image will be set via CSS background -->
+</div>
 
-        <label>Password:</label>
-        <input type="password" name="password" required>
+<div class="right-side">
+    <div class="form-container">
+        <h1>Welcome!</h1>
+        <form action="login" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label>Login As:</label>
-        <select name="role">
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-        </select>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <input type="submit" value="Login">
-    </form>
+            <label for="role">Login As:</label>
+            <select id="role" name="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
 
-    <!-- Register Button -->
-    <form action="register.jsp" method="get" class="register-form">
-        <input type="submit" value="Register" class="register-btn">
-    </form>
+            <input type="submit" value="Login">
+        </form>
 
-    <% String error = request.getParameter("error"); %>
-    <% if (error != null) { %>
-    <div class="error-box">
-        <%= error %>
+        <form action="register.jsp" method="get">
+            <input type="submit" value="Register" class="register-btn">
+        </form>
+
+        <% String error = request.getParameter("error"); %>
+        <% if (error != null) { %>
+        <div class="error-box">
+            <%= error %>
+        </div>
+        <% } %>
     </div>
-    <% } %>
-
-
-
-
-
 </div>
 </body>
 </html>

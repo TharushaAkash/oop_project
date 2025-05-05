@@ -1,28 +1,49 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #8ec5fc, #e0c3fc); /* soft gradient */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+/* Split layout styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.left-side {
+    width: 50%;
+    background: url('../images/body1.jpg') center/cover no-repeat;
+}
+
+.right-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #380a3b 0%, #965842 100%); /* Purple gradient */
+}
+
+/* Glassmorphism form container */
 .form-container {
-    background: rgb(255, 255, 255, 0.2);
-    padding: 30px 40px;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    width: 380px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 350px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
+/* Form elements with improved contrast */
 h1 {
     text-align: center;
-    color: darkblue;
-    margin-bottom: 20px;
+    color: #ffcdb6;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 form {
@@ -31,59 +52,69 @@ form {
 }
 
 label {
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: black;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #ffcdb6;
+    font-size: 14px;
 }
 
 input[type="email"],
 input[type="password"],
 select {
-    padding: 10px;
+    padding: 14px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    outline: none;
+    border-color: white;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 input[type="submit"] {
-    background-color: #28a745;;
+    background-color: #9c27b0; /* Purple accent */
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 20px;
+    padding: 14px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
 }
 
 input[type="submit"]:hover {
-    background-color: transparent;
-    border: 2px solid #218838;
-    color: #218838; /* needs to stay here because of the color property of a tag */
-    text-decoration: none;
+    background-color: #7b1fa2;
+    transform: translateY(-2px);
 }
 
-a {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    color: #fff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-/* Register button style override */
 .register-btn {
-    background-color: #007bff; /* Blue color */
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+    width: 100%;
+    transition: all 0.3s;
 }
 
 .register-btn:hover {
-    background-color: #218838; /* Darker blue on hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
-
 
 .error-box {
     background: rgba(255, 0, 0, 0.1);
@@ -99,5 +130,3 @@ a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
-
-
