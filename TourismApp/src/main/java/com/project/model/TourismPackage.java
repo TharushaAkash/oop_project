@@ -7,15 +7,19 @@ public class TourismPackage {
     private String price;
     private String imageFileName;
     private int durationDays;
+    private String accommodationType;
+    private int discount;
 
 
-    public TourismPackage(String id, String name, String description, String price, String imagefileName, int durationDays) {
+    public TourismPackage(String id, String name, String description, String price, String imagefileName, int durationDays, String accommodationType, int discount) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.imageFileName = imagefileName;
         this.durationDays = durationDays;
+        this.accommodationType = accommodationType;
+        this.discount = discount;
     }
 
     public String getId(){
@@ -60,6 +64,23 @@ public class TourismPackage {
         this.durationDays = durationDays;
     }
 
+    public void setAccommodationType(String accommodationType) {
+        this.accommodationType = accommodationType;
+    }
+
+    public String getAccommodationType() {
+        return accommodationType;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+
 
     public void displayDetails(){
         System.out.println("ID: " + id);
@@ -68,13 +89,15 @@ public class TourismPackage {
         System.out.println("Price: " + price);
         System.out.println("ImageFileName: " + imageFileName);
         System.out.println("Duration: " + durationDays);
+        System.out.println("AccommodationType: " + accommodationType);
+        System.out.println("Discount: " + discount);
     }
 
 
 
     @Override
     public String toString() {
-        return id + "," + name + "," + description + "," + price + "," + imageFileName + "," + durationDays + "\n";
+        return id + "," + name + "," + description + "," + price + "," + imageFileName + "," + durationDays + "," + accommodationType + "," + discount +"\n";
     }
 
 }
