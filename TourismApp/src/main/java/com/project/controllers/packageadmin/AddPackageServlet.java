@@ -25,6 +25,12 @@ public class AddPackageServlet extends HttpServlet {
         String description = request.getParameter("description");
         String price = request.getParameter("price");
         int durationDays = Integer.parseInt(request.getParameter("durationDays"));
+        String accommodationType = request.getParameter("accommodationType");
+
+        String discountStr = request.getParameter("discount");
+        int discount = (discountStr != null && !discountStr.isEmpty()) ? Integer.parseInt(discountStr) : 0;
+
+        //int discount = Integer.parseInt(request.getParameter("discount"));
 
         // Handle image upload
         Part filePart = request.getPart("image");
@@ -38,7 +44,7 @@ public class AddPackageServlet extends HttpServlet {
         filePart.write(filePath);  // save uploaded image
 
         // Create Package Object
-        TourismPackage pkg = new TourismPackage(id, name, description, price, fileName, durationDays);
+        TourismPackage pkg = new TourismPackage(id, name, description, price, fileName, durationDays, accommodationType, discount);
 
         // Add package to BST stored in servlet context
         PackageTree packageTree = (PackageTree) getServletContext().getAttribute("packageTree");

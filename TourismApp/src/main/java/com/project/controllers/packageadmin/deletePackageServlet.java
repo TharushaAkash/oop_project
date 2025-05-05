@@ -23,14 +23,14 @@ public class deletePackageServlet extends HttpServlet {
         PackageManager.removePackage(packageId);
 
         // 2. Delete from BST if it exists
-        /*PackageTree packageTree = (PackageTree) getServletContext().getAttribute("packageTree");
+        PackageTree packageTree = (PackageTree) getServletContext().getAttribute("packageTree");
         if (packageTree != null) {
             try {
-                packageTree.delete(Integer.parseInt(packageId));
+                packageTree.delete(packageId);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid ID format for BST deletion");
             }
-        }*/
+        }
 
         // 3. Redirect to dashboard
         response.sendRedirect("admin-dashboard?message=Package+Removed+Successfully");

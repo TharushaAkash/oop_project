@@ -21,7 +21,8 @@ public class adminDashboardServlet extends HttpServlet {
         //ArrayList<TourismPackage> packages = PackageManager.getPackages();
         //System.out.println(packages.size());
 
-                // 1. Load from file
+                // 1. Load from file\
+
                 PackageManager.readPackages();
                 ArrayList<TourismPackage> filePackages = PackageManager.getPackages();
 
